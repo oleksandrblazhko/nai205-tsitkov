@@ -20,6 +20,6 @@ class Competition:
         number_of_participants = input("Введіть кількість учасників")
 
     def create_ticket(self):
-        ticket_id = new_message_id()
+        ticket_id = new_ticket_id()
         self.competition_id = competition_id
         user_id = input("Введіть id учасника змагань")
