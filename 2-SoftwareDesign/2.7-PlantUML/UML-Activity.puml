@@ -1,0 +1,16 @@
+@startuml
+title Activity Diagram 
+
+start
+
+:User opens chat section; 
+:System displays latest chats;
+:User chooses chat;
+if (Is user banned?) then (yes)
+  :Send error;
+else (no)
+  :Open chat;
+endif
+
+stop
+@enduml

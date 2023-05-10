@@ -1,0 +1,11 @@
+@startuml
+title Classes Diagram
+
+Class User_Sportsman
+Class Competition
+Class Ticket
+
+User_Sportsman"1" -up-> "*"Competition: sign_up_comp()
+Competition"1" -up-> "*"Ticket: create_ticket()
+
+@enduml
