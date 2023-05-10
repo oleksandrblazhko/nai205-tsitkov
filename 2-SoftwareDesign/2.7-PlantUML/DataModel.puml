@@ -1,0 +1,57 @@
+@startuml
+title Relation Schema
+hide circle
+
+entity "User-sportsman" as usp{
+  (PK)user_id
+  --
+  user_name
+  phone
+}
+entity "User-trainer" as utr {
+  (PK)trainer_id
+  --
+  (FK)user_id
+}
+
+entity "Chat" as chat{
+  (PK)chat_id
+  --
+  (FK)user_id
+  (FK)admin_id
+}
+
+entity "Group" as grp{
+  (PK)group_id
+  --
+  (FK)user_id
+  (FK)trainer_id
+}
+
+entity "Competition" as cmp{
+  (PK)competition_id
+  --
+  competition_name
+  competition_place
+  competition_date
+  sport
+  number_of_participants
+}
+
+entity "Ticket" as tck{
+  (PK)ticket_id
+  --
+   (FK)user_id
+   (FK)competition_id
+}
+
+
+usp --- utr
+usp --- chat
+chat --- utr
+usp --- cmp
+cmp --- tck
+utr --- grp
+usp --- grp
+
+@enduml
