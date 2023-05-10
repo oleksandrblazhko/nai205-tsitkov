@@ -1,1 +1,32 @@
+@startuml
+title Usecase for Information system
+left to right direction
 
+actor User
+actor Sportsman
+actor Trainer
+
+
+rectangle Software{
+  
+  Sportsman -- User
+  Sportsman -- (Ask trainers)
+  Trainer -- (Answer questions)
+  Trainer -- (Group/Chat with sportsmen)
+  Trainer -- User
+  User -- (Login)
+  User -- (Competitions)
+  User -- (Chat with sportsmen)
+  User -- (Chat with trainers)
+
+
+(Ask trainers) ..> (Chat with trainers) : <<extends>>
+ (Chat with trainers) ..> (Login) : <<include>>
+ (Chat with sportsmen) ..> (Login) : <<include>>
+ (Competitions) ..> (Login) : <<include>>
+ (Group/Chat with sportsmen) ..> (Chat with sportsmen) : <<extends>>
+ (Answer questions) ..> (Chat with sportsmen) : <<extends>>
+
+}
+
+@enduml
